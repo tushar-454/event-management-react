@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "plan_name": "Basic",
+    "plan_description": "Our basic event management plan offers essential features to get your event started on the right foot.",
+    "plan_price": "$500",
+    "plan_features": [
+      "Event coordination and planning",
+      "Venue selection assistance",
+      "Basic decor and lighting",
+      "Vendor recommendations",
+      "Day-of event management"
+    ]
+  },
+  {
+    "id": 2,
+    "plan_name": "Standard",
+    "plan_description": "Upgrade to our standard event management plan for more comprehensive support and an enhanced event experience.",
+    "plan_price": "$1,000",
+    "plan_features": [
+      "All Basic Event Management plan features",
+      "Detailed event design and styling",
+      "Guest list management",
+      "Budget tracking and management",
+      "Vendor negotiations and contracts"
+    ]
+  },
+  {
+    "id": 3,
+    "plan_name": "Premium",
+    "plan_description": "Experience the full spectrum of event management services with our premium plan, ensuring a flawless and memorable event.",
+    "plan_price": "$2,000",
+    "plan_features": [
+      "All Standard Event Management plan features",
+      "Customized event theme and branding",
+      "Full-service guest experience planning",
+      "VIP handling and concierge services",
+      "Event marketing and promotion"
+    ]
+  }
+]
