@@ -1,9 +1,14 @@
 import PropTypes from 'prop-types';
 
 const Plan = ({ singlePlan }) => {
-  const { plan_name, plan_description, plan_price, plan_features } = singlePlan;
+  const { id, plan_name, plan_description, plan_price, plan_features } =
+    singlePlan;
   return (
-    <div className='w-full flex flex-col p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700'>
+    <div
+      className={`w-full flex flex-col p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700 transition ${
+        id === 2 && 'scale-110 shadow-2xl'
+      } hover:scale-105 shadow-xl`}
+    >
       <h5 className='mb-4 text-xl font-medium text-gray-500 dark:text-gray-400'>
         {plan_name}
       </h5>

@@ -5,7 +5,9 @@ const Service = ({ service }) => {
   const { name, path, image, price, long_description } = service;
   return (
     <>
-      <div className='relative flex w-full flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md'>
+      <div
+        className={`relative flex w-full flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md transition hover:scale-105 hover:shadow-lg`}
+      >
         <div className='relative mx-4 -mt-6 h-full overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40'>
           <img src={image} alt={name} />
         </div>

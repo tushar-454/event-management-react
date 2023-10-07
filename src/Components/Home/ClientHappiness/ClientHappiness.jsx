@@ -69,11 +69,11 @@ const ClientHappiness = () => {
         >
           {clientHappinessApi?.map((review, index) => (
             <div key={index} className='relative h-full'>
-              <div className='text absolute flex flex-col gap-5 items-center w-full sm:w-96 bg-[#00000050] backdrop-blur-sm px-5 py-5 rounded-lg top-[45%] left-[50%] translate-x-[-50%] translate-y-[-50%]'>
+              <div className='text absolute flex flex-col gap-5 items-center w-full sm:w-96 bg-none sm:bg-[#00000050] backdrop-blur-0 sm:backdrop-blur-sm px-5 py-5 rounded-lg top-[45%] left-[50%] translate-x-[-50%] translate-y-[-50%] group'>
                 <img
                   src={review.image}
                   alt='client image'
-                  className='w-32 rounded-full'
+                  className='w-32 rounded-full transition group-hover:scale-105'
                 />
                 <h1 className='text-3xl text-white'>{review.name}</h1>
                 <p className='text-center text-white'>{review.review}</p>
