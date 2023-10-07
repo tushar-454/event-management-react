@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import SectionHead from '../ReusableUI/SectionHead';
+import SectionHead from '../../ReusableUI/SectionHead';
 import Plan from './Plan';
 
 const Pricing = () => {
