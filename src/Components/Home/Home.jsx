@@ -1,4 +1,5 @@
 import { useLoaderData } from 'react-router-dom';
+import Pricing from '../Pricing/Pricing';
 import Banner from './Banner/Banner';
 import Services from './Services/Services';
 
@@ -9,6 +10,7 @@ const Home = () => {
     <>
       <Banner />
       <Services servicesApi={servicesApi} />
+      <Pricing />
     </>
   );
 };
