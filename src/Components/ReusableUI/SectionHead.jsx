@@ -2,9 +2,11 @@ import PropTypes from 'prop-types';
 
 const SectionHead = ({ title, subTitle }) => {
   return (
-    <div className='flex flex-col items-center gap-4 my-20'>
-      <h2 className='text-6xl font-extrabold'>{title}</h2>
-      <p className='w-full lg:w-[960px] text-center'>{subTitle}</p>
+    <div className='text-center mx-auto mb-8 max-w-screen-md lg:mb-16'>
+      <h2 className='mb-4 text-6xl tracking-tight font-extrabold text-gray-900'>
+        {title}
+      </h2>
+      <p className='font-light text-gray-700 sm:text-xl'>{subTitle}</p>
     </div>
   );
 };

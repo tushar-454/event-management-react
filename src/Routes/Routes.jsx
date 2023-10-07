@@ -31,6 +31,7 @@ const routes = createBrowserRouter([
       {
         path: '/team',
         element: <Teams />,
+        loader: () => fetch('/teams.json'),
       },
       {
         path: '/login',
