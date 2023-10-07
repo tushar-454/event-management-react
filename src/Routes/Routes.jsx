@@ -3,7 +3,7 @@ import Error from '../Components/Error/Error';
 import EventCalendar from '../Components/EventCalendar/EventCalendar';
 import Faq from '../Components/Faq/Faq';
 import Home from '../Components/Home/Home';
-import ServicesDetails from '../Components/Home/Services/ServicesDetails';
+import ServicesDetails from '../Components/Home/Services/ServicesDetails.jsx';
 import Layout from '../Components/Layout/Layout';
 import Login from '../Components/Login/Login';
 import Signup from '../Components/Signup/Signup';

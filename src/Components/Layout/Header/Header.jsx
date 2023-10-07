@@ -5,6 +5,7 @@ import {
   ChevronDownIcon,
   HomeIcon,
   PowerIcon,
+  UserGroupIcon,
 } from '@heroicons/react/24/outline';
 import {
   Avatar,
@@ -142,6 +143,11 @@ const navListItems = [
     icon: CalendarDaysIcon,
     path: 'event-clender',
   },
+  {
+    label: 'Team',
+    icon: UserGroupIcon,
+    path: 'team',
+  },
 ];
 
 function NavList() {
@@ -182,8 +188,8 @@ export default function Header() {
   }, []);
 
   return (
-    <div>
-      <Navbar className='mx-auto max-w-screen-2xl p-2 lg:pl-6'>
+    <div className='w-full mx-auto px-5'>
+      <Navbar className='mx-auto max-w-screen-2xl px-2 lg:pl-6'>
         <div className='relative mx-auto flex items-center text-blue-gray-900'>
           <Link to={'/'} state={'SNOW Event management'}>
             <img src={PMLogo} alt='logo' className='w-12' />

@@ -6,10 +6,10 @@ const Home = () => {
   const servicesApi = useLoaderData();
   console.log(servicesApi);
   return (
-    <div>
+    <>
       <Banner />
       <Services servicesApi={servicesApi} />
-    </div>
+    </>
   );
 };
 

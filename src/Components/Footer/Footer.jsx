@@ -19,8 +19,8 @@ const currentYear = new Date().getFullYear();
 
 const Footer = () => {
   return (
-    <footer className='relative w-full bg-[#010c2c] text-white'>
-      <div className='mx-auto w-full max-w-7xl px-8'>
+    <footer className='w-full bg-[#010c2c] text-white'>
+      <div className='mx-auto max-w-screen-2xl px-4'>
         <div className='mx-auto grid w-full grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-4'>
           {/* footer website logo and description */}
           <div className='w-full space-y-5'>
