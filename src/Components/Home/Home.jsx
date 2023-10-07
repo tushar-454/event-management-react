@@ -1,4 +1,5 @@
 import { useLoaderData } from 'react-router-dom';
+import Achievement from './Achievement/Achievement';
 import Banner from './Banner/Banner';
 import ClientHappiness from './ClientHappiness/ClientHappiness';
 import Pricing from './Pricing/Pricing';
@@ -11,6 +12,7 @@ const Home = () => {
       <Banner />
       <Services servicesApi={servicesApi} />
       <Pricing />
+      <Achievement />
       <ClientHappiness />
     </>
   );
