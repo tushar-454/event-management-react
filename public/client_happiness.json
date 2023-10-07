@@ -1,0 +1,27 @@
+[
+  {
+    "image": "https://i.postimg.cc/Gp2Xb65d/client-1.jpg",
+    "name": "Mike Johnson",
+    "review": "Efficient, reliable, and adaptable - they handled our corporate event seamlessly. Highly recommended for any event needs."
+  },
+  {
+    "image": "https://i.postimg.cc/nhTdbnT3/client-2.jpg",
+    "name": "Sarah Miller",
+    "review": "Their team made our anniversary celebration unforgettable. The decor, entertainment, and coordination were top-notch."
+  },
+  {
+    "image": "https://i.postimg.cc/T1mkZmHb/client-3.jpg",
+    "name": "Alex Turner",
+    "review": "I was impressed by their professionalism and ability to handle unexpected challenges. They ensured our event ran smoothly."
+  },
+  {
+    "image": "https://i.postimg.cc/sDY6mYWd/client-4.jpgg",
+    "name": "Megan Roberts",
+    "review": "We trusted them with our charity gala, and they exceeded our expectations. Their dedication to our cause was evident."
+  },
+  {
+    "image": "https://i.postimg.cc/7PTQG8YL/client-5.jpg",
+    "name": "Daniel White",
+    "review": "From the first meeting to the final curtain call, they orchestrated our theater production with precision and flair."
+  }
+]
