@@ -10,7 +10,7 @@ const Pricing = () => {
       .then((plan) => setPlan(plan));
   }, []);
   return (
-    <div className='w-full'>
+    <div className='w-full bg-[#87ceeb09] py-4'>
       <div className='mx-auto max-w-screen-2xl px-4 my-20'>
         <SectionHead
           title='Pricing'
