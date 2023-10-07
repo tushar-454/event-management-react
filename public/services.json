@@ -2,6 +2,7 @@
   {
     "id": 1,
     "name": "Weddings",
+    "path": "weddings",
     "image": "https://i.postimg.cc/L4kqmGmr/wedding.jpg",
     "price": "$15,000",
     "long_description": "Our wedding planning services are designed to turn your dream wedding into a reality. We offer meticulous planning, stunning venue selection, exquisite floral arrangements, and top-notch catering. Our team of experienced professionals ensures every detail, from the ceremony to the reception, is flawlessly executed. We believe in creating a day that reflects your unique love story, making it unforgettable for you and your guests. Let us take care of the logistics while you focus on creating beautiful memories. Trust us to make your special day a truly magical experience."
@@ -9,6 +10,7 @@
   {
     "id": 2,
     "name": "Birthday Parties",
+    "path": "birthday-parties",
     "image": "https://i.postimg.cc/wThk8wrv/birthday.jpg",
     "price": "$2,000",
     "long_description": "Celebrate your special day with a birthday party that matches your personality and style. Whether it's a child's themed party or an elegant adult celebration, our team will curate every aspect. From creative themes and personalized decor to delicious cakes and entertainment, we handle it all. Our goal is to make your birthday unforgettable and stress-free. Let us plan the perfect party so you can focus on enjoying the moments with your loved ones."
@@ -16,6 +18,7 @@
   {
     "id": 3,
     "name": "Anniversaries",
+    "path": "anniversaries",
     "image": "https://i.postimg.cc/76gFT36Z/anniversaries.jpg",
     "price": "$3,500",
     "long_description": "Celebrate your love story with an anniversary event that captures the essence of your journey. Whether it's a romantic dinner for two or a grand party with family and friends, we specialize in creating memorable moments. Our team handles everything from venue selection and decor to catering and entertainment. Let us bring your vision to life, allowing you to relish the love you've shared over the years. Celebrate your milestones with elegance and style."
@@ -23,6 +26,7 @@
   {
     "id": 4,
     "name": "Engagement Parties",
+    "path": "engagement parties",
     "image": "https://i.postimg.cc/66ZrnHt0/engagement.jpg",
     "price": "$2,500",
     "long_description": "Make your engagement announcement special with a carefully curated party. We design engagement events that reflect your unique story and style. From intimate gatherings to lavish celebrations, we handle the planning, decor, and coordination. Let us set the perfect atmosphere for this joyous occasion, allowing you to focus on sharing the exciting news with your loved ones."
@@ -30,6 +34,7 @@
   {
     "id": 5,
     "name": "Retirement Parties",
+    "path": "retirement-parties",
     "image": "https://i.postimg.cc/y883Qn42/retirement.jpg",
     "price": "$2,000",
     "long_description": "Honor a well-deserved retirement with a memorable party. We specialize in creating retirement events that showcase the achievements and milestones of the retiree. From heartfelt speeches to personalized decor, we make the occasion truly special. Let us plan a retirement party that allows you to appreciate the years of hard work and dedication, surrounded by friends and family."
@@ -37,6 +42,7 @@
   {
     "id": 6,
     "name": "Baby Shower",
+    "path": "baby-shower",
     "image": "https://i.postimg.cc/qqW2V3s2/baby-shower.jpg",
     "price": "$1,000",
     "long_description": "Welcome the upcoming arrival of your bundle of joy with a beautiful baby shower. We create adorable and joyous baby showers that celebrate the anticipation of parenthood. From cute themes and baby-themed decor to fun games and delicious treats, we ensure every detail is perfect. Let us plan a baby shower that allows you to cherish this special moment with your loved ones and create lasting memories."
