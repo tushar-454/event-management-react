@@ -22,6 +22,7 @@ const routes = createBrowserRouter([
       {
         path: '/faq',
         element: <Faq />,
+        loader: () => fetch('/faq.json'),
       },
       {
         path: '/event-clender',
