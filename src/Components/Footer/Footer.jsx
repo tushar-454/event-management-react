@@ -10,8 +10,8 @@ const SITEMAP = [
     links: ['Discord', 'Twitter', 'GitHub', 'Contact Us'],
   },
   {
-    title: 'Resources',
-    links: ['Blog', 'Newsletter', 'Free Products', 'Affiliate Program'],
+    title: 'Others',
+    links: ['Gallary', 'Return', 'Refund', 'Terms and condition'],
   },
 ];
 
