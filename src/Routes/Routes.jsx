@@ -7,6 +7,7 @@ import ServicesDetails from '../Components/Home/Services/ServicesDetails.jsx';
 import Layout from '../Components/Layout/Layout';
 import Login from '../Components/Login/Login';
 import Signup from '../Components/Signup/Signup';
+import Teams from '../Components/Teams/Teams';
 const routes = createBrowserRouter([
   {
     path: '/',
@@ -25,6 +26,10 @@ const routes = createBrowserRouter([
       {
         path: '/event-clender',
         element: <EventCalendar />,
+      },
+      {
+        path: '/team',
+        element: <Teams />,
       },
       {
         path: '/login',
