@@ -1,9 +1,28 @@
+import { useContext } from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import swal from 'sweetalert';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Button from '../ReusableUI/Button';
 import Input from '../ReusableUI/Input';
 import LoginWith from '../ReusableUI/LoginWith';
 const Login = () => {
+  const { loginGoogle } = useContext(AuthContext);
+  const navigate = useNavigate();
+  // handle google login
+  const handleGoogleLogin = () => {
+    loginGoogle()
+      .then((currentUser) => {
+        console.log(currentUser.user);
+        swal('Login Successfull', '', 'success');
+        setTimeout(() => {
+          navigate('/');
+        }, 1200);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
   return (
     <div>
       <div className='max-w-6xl mx-auto px-4 my-20'>
@@ -82,7 +101,7 @@ const Login = () => {
             {/* log in with  */}
             <div className='my-8 space-y-3'>
               <LoginWith
-                // handleClick={handleGoogleLogin}
+                handleClick={handleGoogleLogin}
                 displayName={'Login with google'}
                 icon={<FcGoogle className='text-3xl' />}
               />

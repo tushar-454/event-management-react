@@ -19,7 +19,7 @@ import {
   Navbar,
   Typography,
 } from '@material-tailwind/react';
-import React from 'react';
+import React, { useContext } from 'react';
 
 // profile menu component
 const profileMenuItems = [
@@ -31,9 +31,21 @@ const profileMenuItems = [
 
 function ProfileMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const user = false;
+  const { user, signOutAccount } = useContext(AuthContext);
   const { pathname } = useLocation();
   const closeMenu = () => setIsMenuOpen(false);
+  // handle account signout
+  const handleSignOut = () => {
+    signOutAccount()
+      .then(() => {
+        setTimeout(() => {
+          swal('Signout Successfull', '', 'success');
+        }, 500);
+      })
+      .catch((error) => {
+        swal('Error an occur', error.message, 'error');
+      });
+  };
   return user ? (
     <Menu open={isMenuOpen} handler={setIsMenuOpen} placement='bottom-end'>
       <MenuHandler>
@@ -43,14 +55,14 @@ function ProfileMenu() {
           className='flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto'
         >
           <Typography variant='h6' color='blue'>
-            Material Tailwind
+            {user.displayName}
           </Typography>
           <Avatar
             variant='circular'
             size='sm'
             alt='tania andrew'
             className='border border-gray-900 p-0.5'
-            src='https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80'
+            src={user.photoURL}
           />
           <ChevronDownIcon
             strokeWidth={2.5}
@@ -82,6 +94,7 @@ function ProfileMenu() {
                 variant='small'
                 className='font-normal'
                 color={isLastItem ? 'red' : 'inherit'}
+                onClick={handleSignOut}
               >
                 {label}
               </Typography>
@@ -173,6 +186,8 @@ function NavList() {
 }
 
 import { Link, NavLink, useLocation } from 'react-router-dom';
+import swal from 'sweetalert';
+import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import PMLogo from '../../../assets/PMLogo.png';
 
 export default function Header() {
