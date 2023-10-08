@@ -1,10 +1,58 @@
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import swal from 'sweetalert';
+import { storage } from '../../firebase/firebase-config';
 import Button from '../ReusableUI/Button';
 import Input from '../ReusableUI/Input';
+import Photoupload from '../ReusableUI/Photoupload';
 
+const registerInit = {
+  name: '',
+  email: '',
+  photoUrl: '',
+  password: '',
+  confirmPassword: '',
+};
+const errorInit = {
+  name: '',
+  email: '',
+  photoUrl: '',
+  password: '',
+  confirmPassword: '',
+};
 const Register = () => {
-  // const [photoName, setPhotoName] = useState('');
+  const [register, setRegister] = useState({ ...registerInit });
+  const [error, setError] = useState({ ...errorInit });
+  const [photoName, setPhotoName] = useState('');
 
+  // input change control by react and error hide
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+    setRegister((prev) => ({ ...prev, [name]: value }));
+    setError((prev) => ({ ...prev, [name]: '' }));
+  };
+  // handle photo upload control
+  const handleProfileUpload = (e) => {
+    const imageName = e.target.files[0].name;
+    const random = new Date().getTime();
+    const path = `images/${random}_${imageName}`;
+    setPhotoName(imageName);
+    const imagesRef = ref(storage, path);
+    uploadBytes(imagesRef, e.target.files[0])
+      .then(() => {
+        getDownloadURL(ref(storage, path))
+          .then((url) => {
+            setRegister((prev) => ({ ...prev, photoUrl: url }));
+          })
+          .catch((error) => {
+            swal('Error was an occur', error.message, 'error');
+          });
+      })
+      .catch((error) => {
+        swal('Error was an occur', error.message, 'error');
+      });
+  };
   return (
     <div className='max-w-6xl mx-auto px-4 my-20'>
       <div className='w-full flex justify-center'>
@@ -24,9 +72,9 @@ const Register = () => {
                 name='name'
                 placeholder='jhon dou'
                 type='text'
-                // error={error.name}
-                // value={register.name}
-                // handleChange={handleInput}
+                error={error.name}
+                value={register.name}
+                handleChange={handleInput}
               />
               <Input
                 id='email'
@@ -34,40 +82,15 @@ const Register = () => {
                 name='email'
                 placeholder='jhonduo@trqp.fto'
                 type='email'
-                // error={error.email}
-                // value={register.email}
-                // handleChange={handleInput}
-              />
-              {/* <Input
-                id='photoUrl'
-                label='Your photo url'
-                name='photoUrl'
-                placeholder='https://photo.com/myphoto.jpg'
-                type='url'
-                error={error.photoUrl}
-                value={register.photoUrl}
+                error={error.email}
+                value={register.email}
                 handleChange={handleInput}
-                disable={true}
-              /> */}
-              <div className='text-[2xl] outline-none border border-[#C5C5C5] px-5 py-2 bg-transparent duration-700 flex-col justify-center items-center block mb-1 font-montserrat text-[#272749] font-medium text-center transition hover:border-[#F9A51A]'>
-                <label
-                  className='block cursor-pointer text-center'
-                  htmlFor='profileImg'
-                >
-                  Upload Profile Picture
-                </label>
-                <input
-                  className='hidden'
-                  type='file'
-                  name='photoInput'
-                  id='profileImg'
-                  // onChange={handleProfileUpload}
-                  accept='.png, .jpg, .jpeg'
-                />
-                <p className=' text-green-600 text-[14px] text-center'>
-                  {/* {photoName} */}
-                </p>
-              </div>
+              />
+              <Photoupload
+                displayName='Upload Profile Picture'
+                handleProfileUpload={handleProfileUpload}
+                photoName={photoName}
+              />
               <Input
                 id='password'
                 label='Enter your password'
@@ -75,9 +98,9 @@ const Register = () => {
                 placeholder='dfgWEI93$#F'
                 type='password'
                 toggle={true}
-                // error={error.password}
-                // value={register.password}
-                // handleChange={handleInput}
+                error={error.password}
+                value={register.password}
+                handleChange={handleInput}
               />
 
               <Input
@@ -87,9 +110,9 @@ const Register = () => {
                 placeholder='dfgWEI93$#F'
                 type='password'
                 toggle={true}
-                // error={error.confirmPassword}
-                // value={register.confirmPassword}
-                // handleChange={handleInput}
+                error={error.confirmPassword}
+                value={register.confirmPassword}
+                handleChange={handleInput}
               />
 
               <Button
