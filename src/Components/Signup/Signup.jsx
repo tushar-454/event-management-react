@@ -51,11 +51,9 @@ const Register = () => {
           .then((url) => {
             setRegister((prev) => ({ ...prev, photoUrl: url }));
             setPhotoName('Completed.');
-            console.log(register);
             setTimeout(() => {
               setPhotoName(imageName);
             }, 1000);
-            console.log(url);
           })
           .catch((error) => {
             swal('Error was an occur', error.message, 'error');
@@ -184,7 +182,6 @@ const Register = () => {
                 value={register.password}
                 handleChange={handleInput}
               />
-
               <Input
                 id='confirmPassword'
                 label='Confirm your password'
@@ -196,7 +193,6 @@ const Register = () => {
                 value={register.confirmPassword}
                 handleChange={handleInput}
               />
-
               <Button
                 displayName='Signup'
                 type='submit'
