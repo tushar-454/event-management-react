@@ -41,6 +41,7 @@ function ProfileMenu() {
         setTimeout(() => {
           swal('Signout Successfull', '', 'success');
         }, 500);
+        closeMenu();
       })
       .catch((error) => {
         swal('Error an occur', error.message, 'error');
@@ -78,7 +79,7 @@ function ProfileMenu() {
           return (
             <MenuItem
               key={label}
-              onClick={closeMenu}
+              onClick={handleSignOut}
               className={`flex items-center gap-2 rounded ${
                 isLastItem
                   ? 'hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10'
@@ -94,7 +95,6 @@ function ProfileMenu() {
                 variant='small'
                 className='font-normal'
                 color={isLastItem ? 'red' : 'inherit'}
-                onClick={handleSignOut}
               >
                 {label}
               </Typography>

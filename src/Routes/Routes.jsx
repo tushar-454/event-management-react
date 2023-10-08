@@ -8,6 +8,7 @@ import Layout from '../Components/Layout/Layout';
 import Login from '../Components/Login/Login';
 import Signup from '../Components/Signup/Signup';
 import Teams from '../Components/Teams/Teams';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 const routes = createBrowserRouter([
   {
     path: '/',
@@ -26,11 +27,19 @@ const routes = createBrowserRouter([
       },
       {
         path: '/event-clender',
-        element: <EventCalendar />,
+        element: (
+          <PrivateRoute>
+            <EventCalendar />
+          </PrivateRoute>
+        ),
       },
       {
         path: '/team',
-        element: <Teams />,
+        element: (
+          <PrivateRoute>
+            <Teams />
+          </PrivateRoute>
+        ),
         loader: () => fetch('/teams.json'),
       },
       {
@@ -43,7 +52,11 @@ const routes = createBrowserRouter([
       },
       {
         path: '/service/:serviceName',
-        element: <ServicesDetails />,
+        element: (
+          <PrivateRoute>
+            <ServicesDetails />
+          </PrivateRoute>
+        ),
         loader: () => fetch('/services.json'),
       },
     ],
