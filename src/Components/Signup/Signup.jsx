@@ -1,7 +1,10 @@
+/* eslint-disable no-useless-escape */
+import { updateProfile } from 'firebase/auth';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { storage } from '../../firebase/firebase-config';
 import Button from '../ReusableUI/Button';
 import Input from '../ReusableUI/Input';
@@ -25,6 +28,8 @@ const Register = () => {
   const [register, setRegister] = useState({ ...registerInit });
   const [error, setError] = useState({ ...errorInit });
   const [photoName, setPhotoName] = useState('');
+  const { signupEmailPass } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   // input change control by react and error hide
   const handleInput = (e) => {
@@ -37,17 +42,93 @@ const Register = () => {
     const imageName = e.target.files[0].name;
     const random = new Date().getTime();
     const path = `images/${random}_${imageName}`;
-    setPhotoName(imageName);
+    setError((prev) => ({ ...prev, photoUrl: '' }));
+    setPhotoName('Uploading...');
     const imagesRef = ref(storage, path);
     uploadBytes(imagesRef, e.target.files[0])
       .then(() => {
         getDownloadURL(ref(storage, path))
           .then((url) => {
             setRegister((prev) => ({ ...prev, photoUrl: url }));
+            setPhotoName('Completed.');
+            console.log(register);
+            setTimeout(() => {
+              setPhotoName(imageName);
+            }, 1000);
+            console.log(url);
           })
           .catch((error) => {
             swal('Error was an occur', error.message, 'error');
           });
+      })
+      .catch((error) => {
+        swal('Error was an occur', error.message, 'error');
+      });
+  };
+  // handle account create
+  const handleSignupEmailPassword = (e) => {
+    e.preventDefault();
+    const { name, email, photoUrl, password, confirmPassword } = register;
+    if (!name) {
+      setError((prev) => ({ ...prev, name: 'name required !' }));
+      return;
+    } else if (name.length < 3) {
+      setError((prev) => ({ ...prev, name: 'name must be 3 characters !' }));
+      return;
+    }
+    if (!email) {
+      setError((prev) => ({ ...prev, email: 'Email Required !' }));
+      return;
+    } else if (
+      !/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-]+)(\.[a-zA-Z]{2,5}){1,2}$/.test(
+        email
+      )
+    ) {
+      setError((prev) => ({ ...prev, email: 'Email not valid !' }));
+      return;
+    }
+    if (!photoUrl) {
+      setError((prev) => ({ ...prev, photoUrl: 'Upload your Photo !' }));
+      return;
+    }
+    if (!password) {
+      setError((prev) => ({ ...prev, password: 'Password Required' }));
+      return;
+    } else if (!/^(?=.*[A-Z])(?=.*[\W_]).{6,}$/.test(password)) {
+      setError((prev) => ({
+        ...prev,
+        password:
+          'Password must be uppercase, lowercase, special character mixed !',
+      }));
+      return;
+    }
+
+    if (!confirmPassword) {
+      setError((prev) => ({
+        ...prev,
+        confirmPassword: 'Confirm password Required',
+      }));
+      return;
+    } else if (password !== confirmPassword) {
+      setError((prev) => ({
+        ...prev,
+        confirmPassword: 'Confirm password and password not matched !',
+      }));
+      return;
+    }
+    signupEmailPass(email, password)
+      .then((currentUser) => {
+        updateProfile(currentUser.user, {
+          displayName: name,
+          photoURL: photoUrl,
+        })
+          .then(() => {})
+          .catch((error) => swal('Error was an occur', error.message, 'error'));
+        swal('Account Create Successfull', '', 'success');
+        setTimeout(() => {
+          navigate('/');
+        }, 500);
+        setRegister({ ...registerInit });
       })
       .catch((error) => {
         swal('Error was an occur', error.message, 'error');
@@ -90,6 +171,7 @@ const Register = () => {
                 displayName='Upload Profile Picture'
                 handleProfileUpload={handleProfileUpload}
                 photoName={photoName}
+                error={error.photoUrl}
               />
               <Input
                 id='password'
@@ -119,6 +201,7 @@ const Register = () => {
                 displayName='Signup'
                 type='submit'
                 style={{ display: 'block', width: '100%' }}
+                handleClick={handleSignupEmailPassword}
               />
             </form>
           </div>

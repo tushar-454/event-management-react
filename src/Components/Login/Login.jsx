@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
@@ -6,8 +6,18 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Button from '../ReusableUI/Button';
 import Input from '../ReusableUI/Input';
 import LoginWith from '../ReusableUI/LoginWith';
+const loginInit = {
+  email: '',
+  password: '',
+};
+const errorInit = {
+  email: '',
+  password: '',
+};
 const Login = () => {
-  const { loginGoogle } = useContext(AuthContext);
+  const [login, setLogin] = useState({ ...loginInit });
+  const [error, setError] = useState({ ...errorInit });
+  const { signInEmailPass, loginGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
   // handle google login
   const handleGoogleLogin = () => {
@@ -23,6 +33,36 @@ const Login = () => {
         console.log(error.message);
       });
   };
+  // login input change handle by react way
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+    setLogin((prev) => ({ ...prev, [name]: value }));
+    setError((prev) => ({ ...prev, [name]: '' }));
+  };
+  // handle email and password login
+  const handleSigninEmailPassword = (e) => {
+    e.preventDefault();
+    const { email, password } = login;
+    if (!email) {
+      setError((prev) => ({ ...prev, email: 'Email required !' }));
+      return;
+    }
+    if (!password) {
+      setError((prev) => ({ ...prev, password: 'Password required !' }));
+      return;
+    }
+    signInEmailPass(email, password)
+      .then(() => {
+        swal('Login Successfull', '', 'success');
+        setTimeout(() => {
+          navigate('/');
+        }, 500);
+        setLogin({ ...loginInit });
+      })
+      .catch((error) => {
+        swal('Error was an occur', error.message, 'error');
+      });
+  };
   return (
     <div>
       <div className='max-w-6xl mx-auto px-4 my-20'>
@@ -34,16 +74,16 @@ const Login = () => {
             </div>
             {/* login form  */}
             <div className='form'>
-              <form className='space-y-6'>
+              <form className='space-y-6' onSubmit={handleSigninEmailPassword}>
                 <Input
                   id='email'
                   label='Enter your email'
                   name='email'
                   placeholder='jhonduo@trqp.fto'
                   type='email'
-                  // error={error.email}
-                  // value={login.email}
-                  // handleChange={handleInput}
+                  error={error.email}
+                  value={login.email}
+                  handleChange={handleInput}
                 />
                 <Input
                   id='password'
@@ -52,9 +92,9 @@ const Login = () => {
                   placeholder='dfgWEI93$#F'
                   type='password'
                   toggle={true}
-                  // error={error.password}
-                  // value={login.password}
-                  // handleChange={handleInput}
+                  error={error.password}
+                  value={login.password}
+                  handleChange={handleInput}
                 />
                 {/* remember and forgot  */}
                 <div className='flex justify-between items-center'>

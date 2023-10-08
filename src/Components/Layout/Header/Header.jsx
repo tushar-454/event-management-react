@@ -56,18 +56,18 @@ function ProfileMenu() {
           className='flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto'
         >
           <Typography variant='h6' color='blue'>
-            {user.displayName}
+            {user?.displayName}
           </Typography>
           <Avatar
             variant='circular'
-            size='sm'
+            size='lg'
             alt='tania andrew'
             className='border border-gray-900 p-0.5'
-            src={user.photoURL}
+            src={user?.photoURL}
           />
           <ChevronDownIcon
             strokeWidth={2.5}
-            className={`h-3 w-3 transition-transform ${
+            className={`h-5 w-5 transition-transform ${
               isMenuOpen ? 'rotate-180' : ''
             }`}
           />
@@ -207,7 +207,7 @@ export default function Header() {
       <Navbar className='mx-auto max-w-screen-2xl px-2 lg:pl-6'>
         <div className='relative mx-auto flex items-center text-blue-gray-900'>
           <Link to={'/'} state={'SNOW Event management'}>
-            <img src={PMLogo} alt='logo' className='w-12' />
+            <img src={PMLogo} alt='logo' className='w-16' />
           </Link>
           <div className='absolute top-2/4 left-2/4 hidden -translate-x-2/4 -translate-y-2/4 lg:block'>
             <NavList />
