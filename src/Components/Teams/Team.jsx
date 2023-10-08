@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 const Team = ({ team }) => {
-  const { image, name, type } = team;
+  const { aos, image, name, type, facebook, twitter, github, dribbble } = team;
   return (
-    <div className='text-center text-gray-500'>
+    <div data-aos={aos} className='text-center text-gray-500'>
       <img
         className='mx-auto mb-4 w-36 h-36 rounded-full'
         src={image}
@@ -15,7 +15,7 @@ const Team = ({ team }) => {
       <ul className='flex justify-center mt-4 space-x-4'>
         <li>
           <a
-            href='#'
+            href={facebook}
             className='text-[#39569c] hover:text-gray-900 dark:hover:text-white'
           >
             <svg
@@ -34,7 +34,7 @@ const Team = ({ team }) => {
         </li>
         <li>
           <a
-            href='#'
+            href={github}
             className='text-[#00acee] hover:text-gray-900 dark:hover:text-white'
           >
             <svg
@@ -49,7 +49,7 @@ const Team = ({ team }) => {
         </li>
         <li>
           <a
-            href='#'
+            href={twitter}
             className='text-gray-900 hover:text-gray-900 dark:hover:text-white dark:text-gray-300'
           >
             <svg
@@ -68,7 +68,7 @@ const Team = ({ team }) => {
         </li>
         <li>
           <a
-            href='#'
+            href={dribbble}
             className='text-[#ea4c89] hover:text-gray-900 dark:hover:text-white'
           >
             <svg

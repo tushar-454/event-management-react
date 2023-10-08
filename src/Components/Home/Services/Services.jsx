@@ -1,9 +1,9 @@
 import { useLoaderData } from 'react-router-dom';
 import SectionHead from '../../ReusableUI/SectionHead';
 import Service from './Service';
-
 const Services = () => {
   const servicesApi = useLoaderData();
+
   return (
     <div className='w-full'>
       <div className='mx-auto max-w-screen-2xl px-4 my-20'>

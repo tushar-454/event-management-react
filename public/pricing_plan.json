@@ -10,7 +10,8 @@
       "Basic decor and lighting",
       "Vendor recommendations",
       "Day-of event management"
-    ]
+    ],
+    "aos": "fade-right"
   },
   {
     "id": 2,
@@ -23,7 +24,8 @@
       "Guest list management",
       "Budget tracking and management",
       "Vendor negotiations and contracts"
-    ]
+    ],
+    "aos": "fade-down"
   },
   {
     "id": 3,
@@ -36,6 +38,7 @@
       "Full-service guest experience planning",
       "VIP handling and concierge services",
       "Event marketing and promotion"
-    ]
+    ],
+    "aos": "fade-left"
   }
 ]

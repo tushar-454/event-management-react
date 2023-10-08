@@ -2,7 +2,10 @@ import PropTypes from 'prop-types';
 
 const SectionHead = ({ title, subTitle }) => {
   return (
-    <div className='text-center mx-auto mb-8 max-w-screen-md lg:mb-16'>
+    <div
+      data-aos='fade-down'
+      className='text-center mx-auto mb-8 max-w-screen-md lg:mb-16'
+    >
       <h2 className='mb-4 text-6xl tracking-tight font-extrabold text-gray-900'>
         {title}
       </h2>

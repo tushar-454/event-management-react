@@ -3,48 +3,88 @@
     "id": 1,
     "image": "https://i.postimg.cc/P5FKt6bn/team-1.jpg",
     "name": "Sarah Johnson",
-    "type": "Event Planner"
+    "type": "Event Planner",
+    "aos": "fade-up",
+    "facebook": "#",
+    "twitter": "#",
+    "github": "#",
+    "dribbble": "#"
   },
   {
     "id": 2,
     "image": "https://i.postimg.cc/7hMmww9K/team-2.jpg",
     "name": "Michael Smith",
-    "type": "Creative Director"
+    "type": "Creative Director",
+    "aos": "fade-down",
+    "facebook": "#",
+    "twitter": "#",
+    "github": "#",
+    "dribbble": "#"
   },
   {
     "id": 3,
     "image": "https://i.postimg.cc/T1XCzpVy/team-3.jpg",
     "name": "Emily Davis",
-    "type": "Logistics Coordinator"
+    "type": "Logistics Coordinator",
+    "aos": "fade-up",
+    "facebook": "#",
+    "twitter": "#",
+    "github": "#",
+    "dribbble": "#"
   },
   {
     "id": 4,
     "image": "https://i.postimg.cc/tgZk7hDZ/team-4.jpg",
     "name": "David Martinez",
-    "type": "Marketing Specialist"
+    "type": "Marketing Specialist",
+    "aos": "fade-down",
+    "facebook": "#",
+    "twitter": "#",
+    "github": "#",
+    "dribbble": "#"
   },
   {
     "id": 5,
     "image": "https://i.postimg.cc/J7bTb58j/team-5.jpg",
     "name": "Lisa Turner",
-    "type": "Venue Manager"
+    "type": "Venue Manager",
+    "aos": "fade-up",
+    "facebook": "#",
+    "twitter": "#",
+    "github": "#",
+    "dribbble": "#"
   },
   {
     "id": 6,
     "image": "https://i.postimg.cc/DwzB3VXc/team-6.jpg",
     "name": "John Anderson",
-    "type": "Technical Director"
+    "type": "Technical Director",
+    "aos": "fade-down",
+    "facebook": "#",
+    "twitter": "#",
+    "github": "#",
+    "dribbble": "#"
   },
   {
     "id": 7,
     "image": "https://i.postimg.cc/RVdXYCNF/team-7.jpg",
     "name": "Jessica White",
-    "type": "Client Relations Manager"
+    "type": "Client Relations Manager",
+    "aos": "fade-up",
+    "facebook": "#",
+    "twitter": "#",
+    "github": "#",
+    "dribbble": "#"
   },
   {
     "id": 8,
     "image": "https://i.postimg.cc/28r0TLjM/team-8.jpg",
     "name": "Alexandra Lee",
-    "type": "Decor Specialist"
+    "type": "Decor Specialist",
+    "aos": "fade-down",
+    "facebook": "#",
+    "twitter": "#",
+    "github": "#",
+    "dribbble": "#"
   }
 ]

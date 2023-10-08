@@ -15,7 +15,10 @@ const ClientHappiness = () => {
         title='Client Happiness'
         subTitle='Elevating Events, Exceeding Expectations: Hear What Our Satisfied Clients Have to Say About Their Unforgettable Experiences with Us.'
       />
-      <div className='bg-[url("https://i.postimg.cc/SsGJQQ1v/client-comment-bg-dark.jpg")] bg-no-repeat bg-cover h-96 rounded'>
+      <div
+        data-aos='flip-up'
+        className='bg-[url("https://i.postimg.cc/SsGJQQ1v/client-comment-bg-dark.jpg")] bg-no-repeat bg-cover h-96 rounded'
+      >
         <Carousel
           className='rounded'
           prevArrow={({ handlePrev }) => (

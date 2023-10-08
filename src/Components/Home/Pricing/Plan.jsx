@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
 
 const Plan = ({ singlePlan }) => {
-  const { id, plan_name, plan_description, plan_price, plan_features } =
+  const { id, aos, plan_name, plan_description, plan_price, plan_features } =
     singlePlan;
   return (
     <div
+      data-aos={aos}
       className={`w-full flex flex-col p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700 transition ${
         id === 2 && 'scale-110 shadow-2xl'
       } hover:scale-105 shadow-xl`}
