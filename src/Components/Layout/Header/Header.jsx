@@ -173,11 +173,12 @@ function NavList() {
           to={path}
           state={label}
           className={({ isActive }) => (isActive ? '!text-[#2196F3]' : '')}
+          id='navItem'
         >
-          <MenuItem className={`flex items-center gap-2 lg:rounded-full`}>
+          <span className='w-full pt-[9px] pb-2 px-3 rounded-md text-start leading-tight cursor-pointer select-none outline-none flex items-center gap-2 lg:rounded-full'>
             {React.createElement(icon, { className: 'h-[18px] w-[18px]' })}{' '}
             {label}
-          </MenuItem>
+          </span>
         </NavLink>
       ))}
     </ul>
