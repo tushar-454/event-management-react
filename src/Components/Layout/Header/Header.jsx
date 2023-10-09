@@ -31,9 +31,10 @@ const profileMenuItems = [
 
 function ProfileMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const { user, signOutAccount } = useContext(AuthContext);
+  const { photo, user, signOutAccount } = useContext(AuthContext);
   const { pathname } = useLocation();
   const closeMenu = () => setIsMenuOpen(false);
+
   // handle account signout
   const handleSignOut = () => {
     signOutAccount()
@@ -63,7 +64,7 @@ function ProfileMenu() {
             size='lg'
             alt='tania andrew'
             className='border border-gray-900 p-0.5'
-            src={user?.photoURL}
+            src={user?.photoURL || photo}
           />
           <ChevronDownIcon
             strokeWidth={2.5}

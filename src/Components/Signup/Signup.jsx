@@ -2,6 +2,7 @@
 import { updateProfile } from 'firebase/auth';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import { useContext, useState } from 'react';
+import { BsCheck2All } from 'react-icons/bs';
 import { Link, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
@@ -24,11 +25,18 @@ const errorInit = {
   password: '',
   confirmPassword: '',
 };
-const Register = () => {
+const dynamicError = {
+  uppercase: false,
+  lowercase: false,
+  special: false,
+  length: false,
+};
+const Signup = () => {
   const [register, setRegister] = useState({ ...registerInit });
   const [error, setError] = useState({ ...errorInit });
+  const [isShow, setIsShow] = useState(false);
   const [photoName, setPhotoName] = useState('');
-  const { signupEmailPass } = useContext(AuthContext);
+  const { signupEmailPass, setPhoto } = useContext(AuthContext);
   const navigate = useNavigate();
 
   // input change control by react and error hide
@@ -36,6 +44,30 @@ const Register = () => {
     const { name, value } = e.target;
     setRegister((prev) => ({ ...prev, [name]: value }));
     setError((prev) => ({ ...prev, [name]: '' }));
+    if (name === 'password') {
+      setIsShow(true);
+      // password strong check
+      if (value.length >= 6) {
+        dynamicError.length = true;
+      } else {
+        dynamicError.length = false;
+      }
+      if (/[A-Z]/.test(value)) {
+        dynamicError.uppercase = true;
+      } else {
+        dynamicError.uppercase = false;
+      }
+      if (/[a-z]/.test(value)) {
+        dynamicError.lowercase = true;
+      } else {
+        dynamicError.lowercase = false;
+      }
+      if (/[\W_]/.test(value)) {
+        dynamicError.special = true;
+      } else {
+        dynamicError.special = false;
+      }
+    }
   };
   // handle photo upload control
   const handleProfileUpload = (e) => {
@@ -95,8 +127,7 @@ const Register = () => {
     } else if (!/^(?=.*[A-Z])(?=.*[\W_]).{6,}$/.test(password)) {
       setError((prev) => ({
         ...prev,
-        password:
-          'Password must be uppercase, lowercase, special character mixed !',
+        password: '',
       }));
       return;
     }
@@ -123,6 +154,7 @@ const Register = () => {
           .then(() => {})
           .catch((error) => swal('Error was an occur', error.message, 'error'));
         swal('Account Create Successfull', '', 'success');
+        setPhoto(photoUrl);
         setTimeout(() => {
           navigate('/');
         }, 500);
@@ -193,6 +225,41 @@ const Register = () => {
                 value={register.confirmPassword}
                 handleChange={handleInput}
               />
+              {/* dynamicError show  */}
+              <div className={`hidden ${isShow && '!block'}`}>
+                <div
+                  className={`flex gap-2 items-center ${
+                    dynamicError.lowercase ? 'text-green-500' : 'text-red-500'
+                  }`}
+                >
+                  <BsCheck2All />
+                  <p>Must one lowercase</p>
+                </div>
+                <div
+                  className={`flex gap-2 items-center ${
+                    dynamicError.uppercase ? 'text-green-500' : 'text-red-500'
+                  }`}
+                >
+                  <BsCheck2All />
+                  <p>Must one uppercase</p>
+                </div>
+                <div
+                  className={`flex gap-2 items-center ${
+                    dynamicError.special ? 'text-green-500' : 'text-red-500'
+                  }`}
+                >
+                  <BsCheck2All />
+                  <p>Must one special character</p>
+                </div>
+                <div
+                  className={`flex gap-2 items-center ${
+                    dynamicError.length ? 'text-green-500' : 'text-red-500'
+                  }`}
+                >
+                  <BsCheck2All />
+                  <p>Password must be 6 characters</p>
+                </div>
+              </div>
               <Button
                 displayName='Signup'
                 type='submit'
@@ -219,4 +286,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Signup;

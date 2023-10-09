@@ -15,6 +15,7 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoadin] = useState(true);
+  const [photo, setPhoto] = useState('');
   // login with google firebase
   const loginGoogle = () => {
     setLoadin(false);
@@ -51,6 +52,8 @@ const AuthProvider = ({ children }) => {
     signOutAccount,
     signupEmailPass,
     signInEmailPass,
+    photo,
+    setPhoto,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

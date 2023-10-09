@@ -22,15 +22,14 @@ const Login = () => {
   // handle google login
   const handleGoogleLogin = () => {
     loginGoogle()
-      .then((currentUser) => {
-        console.log(currentUser.user);
+      .then(() => {
         swal('Login Successfull', '', 'success');
         setTimeout(() => {
           navigate('/');
         }, 1200);
       })
       .catch((error) => {
-        console.log(error.message);
+        swal('Login Successfull', error.message, 'error');
       });
   };
   // login input change handle by react way

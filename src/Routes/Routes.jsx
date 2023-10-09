@@ -22,7 +22,11 @@ const routes = createBrowserRouter([
       },
       {
         path: '/faq',
-        element: <Faq />,
+        element: (
+          <PrivateRoute>
+            <Faq />
+          </PrivateRoute>
+        ),
         loader: () => fetch('/faq.json'),
       },
       {
