@@ -18,9 +18,9 @@ console.log(greetign);
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: A: {}
+#### Answer: B: ReferenceError: greetign is not defined
 
-<i>1st declare a variable as greeting name by let, then assign an object. So this veriable reference store now our memory. Now we can access any time by call the variable name</i>
+<i>1st declare a variable as greeting name by let, then assign an object in greetign. So this greetign veriable reference not store our memory. So we can not access greetign. So output will be an error greetign is not defined</i>
 
 </p>
 </details>
