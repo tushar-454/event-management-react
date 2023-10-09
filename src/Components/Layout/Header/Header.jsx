@@ -174,16 +174,10 @@ function NavList() {
           state={label}
           className={({ isActive }) => (isActive ? '!text-[#2196F3]' : '')}
         >
-          {/* <Typography key={label} as='span' variant='small' color='blue-gray'> */}
-          <MenuItem
-            className={`flex items-center gap-2 lg:rounded-full ${({
-              isActive,
-            }) => (isActive ? '!text-[#2196F3]' : '')}`}
-          >
+          <MenuItem className={`flex items-center gap-2 lg:rounded-full`}>
             {React.createElement(icon, { className: 'h-[18px] w-[18px]' })}{' '}
             {label}
           </MenuItem>
-          {/* </Typography> */}
         </NavLink>
       ))}
     </ul>
