@@ -36,7 +36,9 @@ const routes = createBrowserRouter([
             <EventCalendar />
           </PrivateRoute>
         ),
+        loader: () => fetch('/calender.json'),
       },
+
       {
         path: '/team',
         element: (

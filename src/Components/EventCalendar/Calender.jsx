@@ -1,327 +1,60 @@
-import { Scatter, ScatterChart, Tooltip, XAxis, YAxis, ZAxis } from 'recharts';
+import { useLoaderData } from 'react-router-dom';
 
-const data01 = [
-  { hour: '7 AM', index: 1, value: 160 },
-  { hour: '11 AM', index: 1, value: 130 },
-  { hour: '3 PM', index: 1, value: 0 },
-  { hour: '7 PM', index: 1, value: 130 },
-  { hour: '11 PM', index: 1, value: 180 },
-  { hour: '3 AM', index: 1, value: 180 },
-];
-
-const data02 = [
-  { hour: '7 AM', index: 1, value: 350 },
-  { hour: '11 AM', index: 1, value: 50 },
-  { hour: '3 PM', index: 1, value: 390 },
-  { hour: '7 PM', index: 1, value: 170 },
-  { hour: '11 PM', index: 1, value: 20 },
-  { hour: '3 AM', index: 1, value: 160 },
-];
-
-const parseDomain = () => [
-  0,
-  Math.max(
-    Math.max.apply(
-      null,
-      data01.map((entry) => entry.value)
-    ),
-    Math.max.apply(
-      null,
-      data02.map((entry) => entry.value)
-    )
-  ),
-];
-
-const renderTooltip = (props) => {
-  const { active, payload } = props;
-
-  if (active && payload && payload.length) {
-    const data = payload[0] && payload[0].payload;
-
-    return (
-      <div
-        style={{
-          backgroundColor: '#fff',
-          border: '1px solid #999',
-          margin: 0,
-          padding: 10,
-        }}
-      >
-        <p>{data.hour}</p>
-        <p>
-          <span>value: </span>
-          {data.value}
-        </p>
-      </div>
-    );
-  }
-
-  return null;
-};
-
-export default function Calendar() {
-  const domain = parseDomain();
-  const range = [16, 400];
-
+const Calender = () => {
+  const calenderApi = useLoaderData();
   return (
-    <div>
-      <ScatterChart
-        width={800}
-        height={60}
-        margin={{
-          top: 10,
-          right: 0,
-          bottom: 0,
-          left: 0,
-        }}
-      >
-        <XAxis
-          type='category'
-          dataKey='hour'
-          interval={0}
-          tick={{ fontSize: 0 }}
-          tickLine={{ transform: 'translate(0, -6)' }}
-        />
-        <YAxis
-          type='number'
-          dataKey='index'
-          name='sunday'
-          height={10}
-          width={80}
-          tick={false}
-          tickLine={false}
-          axisLine={false}
-          label={{ value: 'Sunday', position: 'insideRight' }}
-        />
-        <ZAxis type='number' dataKey='value' domain={domain} range={range} />
-        <Tooltip
-          cursor={{ strokeDasharray: '3 3' }}
-          wrapperStyle={{ zIndex: 100 }}
-          content={renderTooltip}
-        />
-        <Scatter data={data01} fill='#8884d8' />
-      </ScatterChart>
-
-      <ScatterChart
-        width={800}
-        height={60}
-        margin={{
-          top: 10,
-          right: 0,
-          bottom: 0,
-          left: 0,
-        }}
-      >
-        <XAxis
-          type='category'
-          dataKey='hour'
-          name='hour'
-          interval={0}
-          tick={{ fontSize: 0 }}
-          tickLine={{ transform: 'translate(0, -6)' }}
-        />
-        <YAxis
-          type='number'
-          dataKey='index'
-          height={10}
-          width={80}
-          tick={false}
-          tickLine={false}
-          axisLine={false}
-          label={{ value: 'Monday', position: 'insideRight' }}
-        />
-        <ZAxis type='number' dataKey='value' domain={domain} range={range} />
-        <Tooltip
-          cursor={{ strokeDasharray: '3 3' }}
-          wrapperStyle={{ zIndex: 100 }}
-          content={renderTooltip}
-        />
-        <Scatter data={data02} fill='#8884d8' />
-      </ScatterChart>
-
-      <ScatterChart
-        width={800}
-        height={60}
-        margin={{
-          top: 10,
-          right: 0,
-          bottom: 0,
-          left: 0,
-        }}
-      >
-        <XAxis
-          type='category'
-          dataKey='hour'
-          name='hour'
-          interval={0}
-          tick={{ fontSize: 0 }}
-          tickLine={{ transform: 'translate(0, -6)' }}
-        />
-        <YAxis
-          type='number'
-          dataKey='index'
-          height={10}
-          width={80}
-          tick={false}
-          tickLine={false}
-          axisLine={false}
-          label={{ value: 'Tuesday', position: 'insideRight' }}
-        />
-        <ZAxis type='number' dataKey='value' domain={domain} range={range} />
-        <Tooltip
-          cursor={{ strokeDasharray: '3 3' }}
-          wrapperStyle={{ zIndex: 100 }}
-          content={renderTooltip}
-        />
-        <Scatter data={data01} fill='#8884d8' />
-      </ScatterChart>
-
-      <ScatterChart
-        width={800}
-        height={60}
-        margin={{
-          top: 10,
-          right: 0,
-          bottom: 0,
-          left: 0,
-        }}
-      >
-        <XAxis
-          type='category'
-          dataKey='hour'
-          name='hour'
-          interval={0}
-          tick={{ fontSize: 0 }}
-          tickLine={{ transform: 'translate(0, -6)' }}
-        />
-        <YAxis
-          type='number'
-          dataKey='index'
-          height={10}
-          width={80}
-          tick={false}
-          tickLine={false}
-          axisLine={false}
-          label={{ value: 'Wednesday', position: 'insideRight' }}
-        />
-        <ZAxis type='number' dataKey='value' domain={domain} range={range} />
-        <Tooltip
-          cursor={{ strokeDasharray: '3 3' }}
-          wrapperStyle={{ zIndex: 100 }}
-          content={renderTooltip}
-        />
-        <Scatter data={data02} fill='#8884d8' />
-      </ScatterChart>
-
-      <ScatterChart
-        width={800}
-        height={60}
-        margin={{
-          top: 10,
-          right: 0,
-          bottom: 0,
-          left: 0,
-        }}
-      >
-        <XAxis
-          type='category'
-          dataKey='hour'
-          name='hour'
-          interval={0}
-          tick={{ fontSize: 0 }}
-          tickLine={{ transform: 'translate(0, -6)' }}
-        />
-        <YAxis
-          type='number'
-          dataKey='index'
-          height={10}
-          width={80}
-          tick={false}
-          tickLine={false}
-          axisLine={false}
-          label={{ value: 'Thursday', position: 'insideRight' }}
-        />
-        <ZAxis type='number' dataKey='value' domain={domain} range={range} />
-        <Tooltip
-          cursor={{ strokeDasharray: '3 3' }}
-          wrapperStyle={{ zIndex: 100 }}
-          content={renderTooltip}
-        />
-        <Scatter data={data01} fill='#8884d8' />
-      </ScatterChart>
-
-      <ScatterChart
-        width={800}
-        height={60}
-        margin={{
-          top: 10,
-          right: 0,
-          bottom: 0,
-          left: 0,
-        }}
-      >
-        <XAxis
-          type='category'
-          dataKey='hour'
-          name='hour'
-          interval={0}
-          tick={{ fontSize: 0 }}
-          tickLine={{ transform: 'translate(0, -6)' }}
-        />
-        <YAxis
-          type='number'
-          dataKey='index'
-          height={10}
-          width={80}
-          tick={false}
-          tickLine={false}
-          axisLine={false}
-          label={{ value: 'Friday', position: 'insideRight' }}
-        />
-        <ZAxis type='number' dataKey='value' domain={domain} range={range} />
-        <Tooltip
-          cursor={{ strokeDasharray: '3 3' }}
-          wrapperStyle={{ zIndex: 100 }}
-          content={renderTooltip}
-        />
-        <Scatter data={data02} fill='#8884d8' />
-      </ScatterChart>
-
-      <ScatterChart
-        width={800}
-        height={60}
-        margin={{
-          top: 10,
-          right: 0,
-          bottom: 0,
-          left: 0,
-        }}
-      >
-        <XAxis
-          type='category'
-          dataKey='hour'
-          name='hour'
-          interval={0}
-          tickLine={{ transform: 'translate(0, -6)' }}
-        />
-        <YAxis
-          type='number'
-          dataKey='index'
-          height={10}
-          width={80}
-          tick={false}
-          tickLine={false}
-          axisLine={false}
-          label={{ value: 'Saturday', position: 'insideRight' }}
-        />
-        <ZAxis type='number' dataKey='value' domain={domain} range={range} />
-        <Tooltip
-          cursor={{ strokeDasharray: '3 3' }}
-          wrapperStyle={{ zIndex: 100 }}
-          content={renderTooltip}
-        />
-        <Scatter data={data01} fill='#8884d8' />
-      </ScatterChart>
+    <div className='grid gap-5 grid-cols-7'>
+      <div className='w-8 md:w-12 h-8 md:h-12 border text-3xl font-semibold cursor-pointer bg-[#cbd5e1] transition hover:bg-[#e2e8f0] p-10 flex items-center justify-center'>
+        Su
+      </div>{' '}
+      <div className='w-8 md:w-12 h-8 md:h-12 border text-3xl font-semibold cursor-pointer bg-[#cbd5e1] transition hover:bg-[#e2e8f0] p-10 flex items-center justify-center'>
+        Mo
+      </div>{' '}
+      <div className='w-8 md:w-12 h-8 md:h-12 border text-3xl font-semibold cursor-pointer bg-[#cbd5e1] transition hover:bg-[#e2e8f0] p-10 flex items-center justify-center'>
+        Tu
+      </div>{' '}
+      <div className='w-8 md:w-12 h-8 md:h-12 border text-3xl font-semibold cursor-pointer bg-[#cbd5e1] transition hover:bg-[#e2e8f0] p-10 flex items-center justify-center'>
+        We
+      </div>{' '}
+      <div className='w-8 md:w-12 h-8 md:h-12 border text-3xl font-semibold cursor-pointer bg-[#cbd5e1] transition hover:bg-[#e2e8f0] p-10 flex items-center justify-center'>
+        Th
+      </div>{' '}
+      <div className='w-8 md:w-12 h-8 md:h-12 border text-3xl font-semibold cursor-pointer bg-[#cbd5e1] transition hover:bg-[#e2e8f0] p-10 flex items-center justify-center'>
+        Fr
+      </div>{' '}
+      <div className='w-8 md:w-12 h-8 md:h-12 border text-3xl font-semibold cursor-pointer bg-[#cbd5e1] transition hover:bg-[#e2e8f0] p-10 flex items-center justify-center'>
+        Sa
+      </div>
+      {calenderApi?.map((calender, index) => (
+        <div
+          data-aos={calender.aos}
+          key={index}
+          className={`w-8 md:w-12 h-8 md:h-12 border text-2xl font-medium cursor-pointer transition hover:bg-gray-100 p-10 flex items-center justify-center relative group ${
+            calender.isEvent && 'bg-gray-300/40'
+          }`}
+        >
+          <p className='flex flex-col'>
+            <span>{calender.date}</span>
+            {calender.isEvent ? (
+              <small className='text-red-400 font-normal'>
+                {calender.isEvent && 'Booked'}
+              </small>
+            ) : (
+              <small className='text-green-400 font-normal'>
+                {calender.isEvent || 'Available'}
+              </small>
+            )}
+          </p>
+          {calender.isEvent && (
+            <div className='absolute w-64 bg-gray-200/50 backdrop-blur p-3 -top-20 transition scale-0 origin-center group-hover:scale-100'>
+              <p>{calender.eventName}</p>
+              <p>{calender.time}</p>
+            </div>
+          )}
+        </div>
+      ))}
     </div>
   );
-}
+};
+
+export default Calender;

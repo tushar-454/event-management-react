@@ -1,0 +1,242 @@
+[
+  {
+    "id": 1,
+    "date": "01",
+    "isEvent": true,
+    "eventName": "Birthday Party",
+    "time": "6:30 PM",
+    "aos": "fade-up"
+  },
+  {
+    "id": 2,
+    "date": "02",
+    "isEvent": false,
+    "eventName": "",
+    "time": "",
+    "aos": "fade-down"
+  },
+  {
+    "id": 3,
+    "date": "03",
+    "isEvent": true,
+    "eventName": "Community Mixer",
+    "time": "8:00 PM",
+    "aos": "fade-up"
+  },
+  {
+    "id": 4,
+    "date": "04",
+    "isEvent": true,
+    "eventName": "Fundraising Event",
+    "time": "7:45 PM",
+    "aos": "fade-down"
+  },
+  {
+    "id": 5,
+    "date": "05",
+    "isEvent": false,
+    "eventName": "",
+    "time": "",
+    "aos": "fade-up"
+  },
+  {
+    "id": 6,
+    "date": "06",
+    "isEvent": true,
+    "eventName": "Music Concert",
+    "time": "8:30 PM",
+    "aos": "fade-down"
+  },
+  {
+    "id": 7,
+    "date": "07",
+    "isEvent": true,
+    "eventName": "Fashion Show",
+    "time": "7:00 PM",
+    "aos": "fade-up"
+  },
+  {
+    "id": 8,
+    "date": "08",
+    "isEvent": false,
+    "eventName": "",
+    "time": "",
+    "aos": "fade-down"
+  },
+  {
+    "id": 9,
+    "date": "09",
+    "isEvent": true,
+    "eventName": "Dance Party",
+    "time": "6:45 PM",
+    "aos": "fade-up"
+  },
+  {
+    "id": 10,
+    "date": "10",
+    "isEvent": true,
+    "eventName": "Food Festival",
+    "time": "7:30 PM",
+    "aos": "fade-down"
+  },
+  {
+    "id": 11,
+    "date": "11",
+    "isEvent": false,
+    "eventName": "",
+    "time": "",
+    "aos": "fade-up"
+  },
+  {
+    "id": 12,
+    "date": "12",
+    "isEvent": true,
+    "eventName": "Book Launch",
+    "time": "7:20 PM",
+    "aos": "fade-down"
+  },
+  {
+    "id": 13,
+    "date": "13",
+    "isEvent": true,
+    "eventName": "Yoga Retreat",
+    "time": "6:50 PM",
+    "aos": "fade-up"
+  },
+  {
+    "id": 14,
+    "date": "14",
+    "isEvent": false,
+    "eventName": "",
+    "time": "",
+    "aos": "fade-down"
+  },
+  {
+    "id": 15,
+    "date": "15",
+    "isEvent": true,
+    "eventName": "Game Night",
+    "time": "7:40 PM",
+    "aos": "fade-up"
+  },
+  {
+    "id": 16,
+    "date": "16",
+    "isEvent": false,
+    "eventName": "",
+    "time": "",
+    "aos": "fade-down"
+  },
+  {
+    "id": 17,
+    "date": "17",
+    "isEvent": true,
+    "eventName": "Theater Production",
+    "time": "8:10 PM",
+    "aos": "fade-up"
+  },
+  {
+    "id": 18,
+    "date": "18",
+    "isEvent": false,
+    "eventName": "",
+    "time": "",
+    "aos": "fade-down"
+  },
+  {
+    "id": 19,
+    "date": "19",
+    "isEvent": true,
+    "eventName": "Art Workshop",
+    "time": "6:25 PM",
+    "aos": "fade-up"
+  },
+  {
+    "id": 20,
+    "date": "20",
+    "isEvent": true,
+    "eventName": "Cooking Class",
+    "time": "7:50 PM",
+    "aos": "fade-down"
+  },
+  {
+    "id": 21,
+    "date": "21",
+    "isEvent": true,
+    "eventName": "Fitness Challenge",
+    "time": "8:40 PM",
+    "aos": "fade-up"
+  },
+  {
+    "id": 22,
+    "date": "22",
+    "isEvent": false,
+    "eventName": "",
+    "time": "",
+    "aos": "fade-down"
+  },
+  {
+    "id": 23,
+    "date": "23",
+    "isEvent": true,
+    "eventName": "Science Fair",
+    "time": "6:15 PM",
+    "aos": "fade-up"
+  },
+  {
+    "id": 24,
+    "date": "24",
+    "isEvent": true,
+    "eventName": "Craft Beer Tasting",
+    "time": "8:05 PM",
+    "aos": "fade-down"
+  },
+  {
+    "id": 25,
+    "date": "25",
+    "isEvent": true,
+    "eventName": "Pet Adoption Drive",
+    "time": "7:35 PM",
+    "aos": "fade-up"
+  },
+  {
+    "id": 26,
+    "date": "26",
+    "isEvent": true,
+    "eventName": "Tech Expo",
+    "time": "6:10 PM",
+    "aos": "fade-down"
+  },
+  {
+    "id": 27,
+    "date": "27",
+    "isEvent": false,
+    "eventName": "",
+    "time": "",
+    "aos": "fade-up"
+  },
+  {
+    "id": 28,
+    "date": "28",
+    "isEvent": true,
+    "eventName": "Conference",
+    "time": "8:30 AM",
+    "aos": "fade-down"
+  },
+  {
+    "id": 29,
+    "date": "29",
+    "isEvent": true,
+    "eventName": "Art Show",
+    "time": "5:00 PM",
+    "aos": "fade-up"
+  },
+  {
+    "id": 30,
+    "date": "30",
+    "isEvent": false,
+    "eventName": "",
+    "time": "",
+    "aos": "fade-down"
+  }
+]
