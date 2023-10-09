@@ -1,8 +1,12 @@
 # Event-Management
 
-## [ Live link](https://event-management-4dbcc.web.app/)
+## [ Live link firebase](https://event-management-4dbcc.web.app/)
+
+## [Live Link Netlify](https://event-management-454.netlify.app/)
 
 ### [https://event-management-4dbcc.web.app/](https://event-management-4dbcc.web.app/)
+
+### [https://event-management-454.netlify.app/](https://event-management-454.netlify.app/)
 
 ### Here I mentioned there are 5 different features and functionalities of your website.
 
