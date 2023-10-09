@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Button from '../ReusableUI/Button';
@@ -17,7 +17,7 @@ const errorInit = {
 const Login = () => {
   const [login, setLogin] = useState({ ...loginInit });
   const [error, setError] = useState({ ...errorInit });
-  const { signInEmailPass, loginGoogle } = useContext(AuthContext);
+  const { user, signInEmailPass, loginGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
   // handle google login
   const handleGoogleLogin = () => {
@@ -62,6 +62,9 @@ const Login = () => {
         swal('Error was an occur', error.message, 'error');
       });
   };
+  if (user) {
+    return <Navigate to={'/'} replace={true} />;
+  }
   return (
     <div>
       <div className='max-w-6xl mx-auto px-4 my-20'>

@@ -3,7 +3,7 @@ import { updateProfile } from 'firebase/auth';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import { useContext, useState } from 'react';
 import { BsCheck2All } from 'react-icons/bs';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { storage } from '../../firebase/firebase-config';
@@ -36,7 +36,7 @@ const Signup = () => {
   const [error, setError] = useState({ ...errorInit });
   const [isShow, setIsShow] = useState(false);
   const [photoName, setPhotoName] = useState('');
-  const { signupEmailPass, setUpdateProfile } = useContext(AuthContext);
+  const { user, signupEmailPass, setUpdateProfile } = useContext(AuthContext);
   const navigate = useNavigate();
 
   // input change control by react and error hide
@@ -164,6 +164,9 @@ const Signup = () => {
         swal('Error was an occur', error.message, 'error');
       });
   };
+  if (user) {
+    return <Navigate to={'/'} replace={true} />;
+  }
   return (
     <div className='max-w-6xl mx-auto px-4 my-20'>
       <div className='w-full flex justify-center'>

@@ -15,12 +15,12 @@ export default function Achievement() {
           title='Achievements'
           subTitle='Building Success, One Event at a Time: Our Achievements and Milestones in Crafting Unforgettable Experiences for Our Valued Clients.'
         />
-        <div className='grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 content-center justify-center bg-[#81ceed22] py-5'>
+        <div className='grid gap-10 lg:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 content-center justify-center bg-[#81ceed22] py-5'>
           <div data-aos='fade-up' className='flex flex-col gap-3 items-center'>
             <div className='icon'>
               <BiHappyBeaming className='text-9xl' />
             </div>
-            <h1 className='text-4xl font-semibold'>Happiest Client</h1>
+            <h1 className='text-3xl font-semibold'>Happiest Client</h1>
             <h1 className='text-6xl font-bold'>
               <ScrollTrigger onEnter={() => setCounteron(true)}>
                 {counteron && (
@@ -36,7 +36,7 @@ export default function Achievement() {
             <div className='icon'>
               <MdEventAvailable className='text-9xl' />
             </div>
-            <h1 className='text-4xl font-semibold'>Total Event</h1>
+            <h1 className='text-3xl font-semibold'>Total Event</h1>
             <h1 className='text-6xl font-bold'>
               <ScrollTrigger onEnter={() => setCounteron(true)}>
                 {counteron && (
@@ -49,7 +49,7 @@ export default function Achievement() {
             <div className='icon'>
               <MdRateReview className='text-9xl' />
             </div>
-            <h1 className='text-4xl font-semibold'>Review</h1>
+            <h1 className='text-3xl font-semibold'>Review</h1>
             <h1 className='text-6xl font-bold'>
               <ScrollTrigger onEnter={() => setCounteron(true)}>
                 {counteron && (
@@ -65,7 +65,7 @@ export default function Achievement() {
             <div className='icon'>
               <FaAward className='text-9xl' />
             </div>
-            <h1 className='text-4xl font-semibold'>Event award</h1>
+            <h1 className='text-3xl font-semibold'>Event award</h1>
             <h1 className='text-6xl font-bold'>
               <ScrollTrigger onEnter={() => setCounteron(true)}>
                 {counteron && (
