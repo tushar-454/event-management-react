@@ -64,7 +64,7 @@ const Login = () => {
       });
   };
   if (user) {
-    return <Navigate to={state} replace={true} />;
+    return <Navigate to={state ? state : '/'} replace={true} />;
   }
   return (
     <div>
