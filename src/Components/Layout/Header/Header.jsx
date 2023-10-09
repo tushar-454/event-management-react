@@ -31,7 +31,7 @@ const profileMenuItems = [
 
 function ProfileMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const { photo, user, signOutAccount } = useContext(AuthContext);
+  const { updateProfile, user, signOutAccount } = useContext(AuthContext);
   const { pathname } = useLocation();
   const closeMenu = () => setIsMenuOpen(false);
 
@@ -57,14 +57,14 @@ function ProfileMenu() {
           className='flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto'
         >
           <Typography variant='h6' color='blue'>
-            {user?.displayName}
+            {user?.displayName || updateProfile.name}
           </Typography>
           <Avatar
             variant='circular'
             size='lg'
             alt='tania andrew'
             className='border border-gray-900 p-0.5'
-            src={user?.photoURL || photo}
+            src={user?.photoURL || updateProfile.photo}
           />
           <ChevronDownIcon
             strokeWidth={2.5}

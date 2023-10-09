@@ -36,7 +36,7 @@ const Signup = () => {
   const [error, setError] = useState({ ...errorInit });
   const [isShow, setIsShow] = useState(false);
   const [photoName, setPhotoName] = useState('');
-  const { signupEmailPass, setPhoto } = useContext(AuthContext);
+  const { signupEmailPass, setUpdateProfile } = useContext(AuthContext);
   const navigate = useNavigate();
 
   // input change control by react and error hide
@@ -154,7 +154,7 @@ const Signup = () => {
           .then(() => {})
           .catch((error) => swal('Error was an occur', error.message, 'error'));
         swal('Account Create Successfull', '', 'success');
-        setPhoto(photoUrl);
+        setUpdateProfile({ photo: photoUrl, name: name });
         setTimeout(() => {
           navigate('/');
         }, 500);
