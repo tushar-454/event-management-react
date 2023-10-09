@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import swal from 'sweetalert';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const PrivateRoute = ({ children }) => {
   const { loading, user } = useContext(AuthContext);
+  const { pathname } = useLocation();
 
   if (loading) {
     return (
@@ -19,7 +20,7 @@ const PrivateRoute = ({ children }) => {
 
   if (!user) {
     swal('Login first !', '', 'info');
-    return <Navigate to={'/login'} replace={true} />;
+    return <Navigate to={'/login'} state={pathname} replace={true} />;
   }
   return children;
 };

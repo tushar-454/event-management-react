@@ -105,11 +105,7 @@ function ProfileMenu() {
       </MenuList>
     </Menu>
   ) : pathname === '/login' ? (
-    <Link
-      to={'/signup'}
-      state={'Event Management | SNOW | Login'}
-      className='flex items-center lg:ml-auto'
-    >
+    <Link to={'/signup'} state={''} className='flex items-center lg:ml-auto'>
       <Menu placement='bottom-end'>
         <button className='group relative h-12 w-32 overflow-hidden rounded-lg bg-white text-lg shadow'>
           <div className='absolute inset-0 w-3 bg-amber-400 transition-all duration-[250ms] ease-out group-hover:w-full'></div>
@@ -120,11 +116,7 @@ function ProfileMenu() {
       </Menu>
     </Link>
   ) : (
-    <Link
-      to={'/login'}
-      state={'Event Management | SNOW | Register'}
-      className='flex items-center lg:ml-auto'
-    >
+    <Link to={'/login'} state={''} className='flex items-center lg:ml-auto'>
       {' '}
       <Menu placement='bottom-end'>
         <div className=''>
@@ -150,17 +142,17 @@ const navListItems = [
   {
     label: 'FAQ',
     icon: BoltIcon,
-    path: 'faq',
+    path: '/faq',
   },
   {
     label: 'Event Clendar',
     icon: CalendarDaysIcon,
-    path: 'event-clender',
+    path: '/event-clender',
   },
   {
     label: 'Team',
     icon: UserGroupIcon,
-    path: 'team',
+    path: '/team',
   },
 ];
 
@@ -171,12 +163,14 @@ function NavList() {
         <NavLink
           key={label}
           to={path}
-          state={label}
+          state={'path'}
           className={({ isActive }) => (isActive ? '!text-[#2196F3]' : '')}
           id='navItem'
         >
-          <span className='w-full pt-[9px] pb-2 px-3 rounded-md text-start leading-tight cursor-pointer select-none outline-none flex items-center gap-2 lg:rounded-full'>
-            {React.createElement(icon, { className: 'h-[18px] w-[18px]' })}{' '}
+          <span className='w-full pt-[9px] pb-2 px-3 rounded-md text-start leading-tight cursor-pointer select-none outline-none flex items-center gap-2 font-semibold'>
+            {React.createElement(icon, {
+              className: 'h-[18px] w-[18px] relative -top-[1px]',
+            })}{' '}
             {label}
           </span>
         </NavLink>
@@ -206,7 +200,7 @@ export default function Header() {
     <div className='w-full mx-auto px-5'>
       <Navbar className='mx-auto max-w-screen-2xl px-2 lg:pl-6'>
         <div className='relative mx-auto flex items-center text-blue-gray-900'>
-          <Link to={'/'} state={'SNOW Event management'}>
+          <Link to={'/'} state={''}>
             <img src={PMLogo} alt='logo' className='w-16' />
           </Link>
           <div className='absolute top-2/4 left-2/4 hidden -translate-x-2/4 -translate-y-2/4 lg:block'>

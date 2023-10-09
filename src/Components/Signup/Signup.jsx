@@ -8,6 +8,7 @@ import swal from 'sweetalert';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { storage } from '../../firebase/firebase-config';
 import Button from '../ReusableUI/Button';
+import Checkbox from '../ReusableUI/Checkbox';
 import Input from '../ReusableUI/Input';
 import Photoupload from '../ReusableUI/Photoupload';
 
@@ -24,6 +25,7 @@ const errorInit = {
   photoUrl: '',
   password: '',
   confirmPassword: '',
+  terms: false,
 };
 const dynamicError = {
   uppercase: false,
@@ -35,6 +37,7 @@ const Signup = () => {
   const [register, setRegister] = useState({ ...registerInit });
   const [error, setError] = useState({ ...errorInit });
   const [isShow, setIsShow] = useState(false);
+  const [terms, setTerms] = useState(false);
   const [photoName, setPhotoName] = useState('');
   const { user, signupEmailPass, setUpdateProfile } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -145,6 +148,13 @@ const Signup = () => {
       }));
       return;
     }
+    if (!terms) {
+      setError((prev) => ({
+        ...prev,
+        terms: true,
+      }));
+      return;
+    }
     signupEmailPass(email, password)
       .then((currentUser) => {
         updateProfile(currentUser.user, {
@@ -155,6 +165,7 @@ const Signup = () => {
           .catch((error) => swal('Error was an occur', error.message, 'error'));
         swal('Account Create Successfull', '', 'success');
         setUpdateProfile({ photo: photoUrl, name: name });
+        setTerms(false);
         setTimeout(() => {
           navigate('/');
         }, 500);
@@ -228,6 +239,7 @@ const Signup = () => {
                 value={register.confirmPassword}
                 handleChange={handleInput}
               />
+
               {/* dynamicError show  */}
               <div className={`hidden ${isShow && '!block'}`}>
                 <div
@@ -263,6 +275,13 @@ const Signup = () => {
                   <p>Password must be 6 characters</p>
                 </div>
               </div>
+              <Checkbox
+                name='terms'
+                displayName='Accept our Terms and Condition'
+                checked={terms}
+                error={error.terms}
+                handleChange={() => setTerms(!terms)}
+              />
               <Button
                 displayName='Signup'
                 type='submit'

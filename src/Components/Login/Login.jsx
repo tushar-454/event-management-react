@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Button from '../ReusableUI/Button';
@@ -19,13 +19,14 @@ const Login = () => {
   const [error, setError] = useState({ ...errorInit });
   const { user, signInEmailPass, loginGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
+  const { state } = useLocation();
   // handle google login
   const handleGoogleLogin = () => {
     loginGoogle()
       .then(() => {
         swal('Login Successfull', '', 'success');
         setTimeout(() => {
-          navigate('/');
+          navigate(state);
         }, 1200);
       })
       .catch((error) => {
@@ -54,7 +55,7 @@ const Login = () => {
       .then(() => {
         swal('Login Successfull', '', 'success');
         setTimeout(() => {
-          navigate('/');
+          navigate(state);
         }, 500);
         setLogin({ ...loginInit });
       })
@@ -63,7 +64,7 @@ const Login = () => {
       });
   };
   if (user) {
-    return <Navigate to={'/'} replace={true} />;
+    return <Navigate to={state} replace={true} />;
   }
   return (
     <div>
