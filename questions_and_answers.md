@@ -18,9 +18,9 @@ console.log(greetign);
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: ?
+#### Answer: A: {}
 
-<i>Write your explanation here</i>
+<i>1st declare a variable as greeting name by let, then assign an object. So this veriable reference store now our memory. Now we can access any time by call the variable name</i>
 
 </p>
 </details>
@@ -32,7 +32,7 @@ function sum(a, b) {
   return a + b;
 }
 
-sum(1, "2");
+sum(1, '2');
 ```
 
 - A: `NaN`
@@ -43,9 +43,11 @@ sum(1, "2");
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: ?
+#### Answer: C: "12"
 
-<i>Write your explanation here</i>
+<i>line-2: Is a return, we know always every function has return something, if we don't any return function by default return undefined. So this is a summetion function, it return summention value, so we use return in function body for get summetion value.
+line-5: This is a function call. We know, a function is working when it will call. So here we call the function with parameter, cause our function want two number for summetion by parameter value.
+</i>
 
 </p>
 </details>
@@ -53,10 +55,10 @@ sum(1, "2");
 ###### 3. Write the `correct answer` from the following options and give an explanation (2-5 lines).
 
 ```javascript
-const food = ["🍕", "🍫", "🥑", "🍔"];
+const food = ['🍕', '🍫', '🥑', '🍔'];
 const info = { favoriteFood: food[0] };
 
-info.favoriteFood = "🍝";
+info.favoriteFood = '🍝';
 
 console.log(food);
 ```
@@ -69,9 +71,9 @@ console.log(food);
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: ?
+#### Answer: A: `['🍕', '🍫', '🥑', '🍔']`
 
-<i>Write your explanation here</i>
+<i>First of all, we take a variable name is food and assign an array,here some food item. Then we take a another variable name is info and assign an object, this object have one property and value, the property is favoriteFood but the value come from our food array, food[0] means our object value will be our food array first item. So we can assume our info output is - {favoriteFood: '🍕'}. Next line we update our info object favoriteFood property value by '🍝'. and last line we are console.log(food). Since we are not changed any value of food array, so it's remain same like before. so our console output will be an array look like ['🍕', '🍫', '🥑', '🍔']</i>
 
 </p>
 </details>
@@ -94,9 +96,9 @@ console.log(sayHi());
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: ?
+#### Answer: B:`Hi there, undefined`
 
-<i>Write your explanation here</i>
+<i>First of all, we take a function which name is sayHi. It take a value from parameter and it return Hi there and the parameter name, here using template string, that means, when the function will invoked, it wants a parameter value, here we input any data, this value showing in template string as daynamic value at ${name} place.</i>
 
 </p>
 </details>
@@ -122,9 +124,9 @@ console.log(count);
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: ?
+#### Answer: C: 3
 
-<i>Write your explanation here</i>
+<i>First of all we take a variable name is count and which value is 0. Then take an array name is nums and value is [0,1,2,3]. now we use forEach array method on nums array. It runs every nums element for one time. forEach method take a callback function. And this callback function find parameter, 1st parameter will be our nums array every element, we take it as num, and num value change every loop, and this loop go throw our every nums array element. So we can assume that, num will be 0,1,2,3 | now in forEach we check condition that, if num available or true then count += 1, means count increase 1 with it's previous value. So, our 1st condition we found / if(0) count += 1 /it look like this. So we know JavaScript is not a strict type language, and also javascript assume single 0 as a boolean false. Ultimately here we found false therefore we can not enter if block so our count value remain 0. then the num value come 1,2,3 respectively. this time javascript denote all value are true and we can enter the if block and increaes count value 1 for 3 times. cause 1st time skip for false value. so ultimately we found count total is 3.</i>
 
 </p>
 </details>
