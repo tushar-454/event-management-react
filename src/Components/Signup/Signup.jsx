@@ -45,7 +45,6 @@ const Signup = () => {
   // input change control by react and error hide
   const handleInput = (e) => {
     const { name, value } = e.target;
-    console.log(name);
     setRegister((prev) => ({ ...prev, [name]: value }));
     setError((prev) => ({ ...prev, [name]: '' }));
     if (name === 'password') {
