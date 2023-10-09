@@ -6,7 +6,7 @@
     "image": "https://i.postimg.cc/L4kqmGmr/wedding.jpg",
     "price": "$15,000",
     "long_description": "Our wedding planning services are designed to turn your dream wedding into a reality. We offer meticulous planning, stunning venue selection, exquisite floral arrangements, and top-notch catering. Our team of experienced professionals ensures every detail, from the ceremony to the reception, is flawlessly executed. We believe in creating a day that reflects your unique love story, making it unforgettable for you and your guests. Let us take care of the logistics while you focus on creating beautiful memories. Trust us to make your special day a truly magical experience.",
-    "aos": "fade-left"
+    "aos": "fade-right"
   },
   {
     "id": 2,
@@ -33,7 +33,7 @@
     "image": "https://i.postimg.cc/66ZrnHt0/engagement.jpg",
     "price": "$2,500",
     "long_description": "Make your engagement announcement special with a carefully curated party. We design engagement events that reflect your unique story and style. From intimate gatherings to lavish celebrations, we handle the planning, decor, and coordination. Let us set the perfect atmosphere for this joyous occasion, allowing you to focus on sharing the exciting news with your loved ones.",
-    "aos": "fade-left"
+    "aos": "fade-right"
   },
   {
     "id": 5,

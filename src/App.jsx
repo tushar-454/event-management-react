@@ -7,6 +7,7 @@ import routes from './Routes/Routes';
 function App() {
   useEffect(() => {
     Aos.init();
+    Aos.refresh();
   }, []);
   return (
     <AuthProvider>
