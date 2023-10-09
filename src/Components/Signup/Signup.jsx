@@ -45,6 +45,7 @@ const Signup = () => {
   // input change control by react and error hide
   const handleInput = (e) => {
     const { name, value } = e.target;
+    console.log(name);
     setRegister((prev) => ({ ...prev, [name]: value }));
     setError((prev) => ({ ...prev, [name]: '' }));
     if (name === 'password') {
@@ -280,7 +281,10 @@ const Signup = () => {
                 displayName='Accept our Terms and Condition'
                 checked={terms}
                 error={error.terms}
-                handleChange={() => setTerms(!terms)}
+                handleChange={() => {
+                  setTerms(!terms);
+                  setError((prev) => ({ ...prev, terms: false }));
+                }}
               />
               <Button
                 displayName='Signup'
