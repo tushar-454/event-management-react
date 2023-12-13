@@ -163,6 +163,12 @@ const Signup = () => {
         })
           .then(() => {})
           .catch((error) => swal('Error was an occur', error.message, 'error'));
+        // -----------
+        // updateEmail(currentUser.user, 'newemail@gmail.com')
+        //   .then(() => console.log('email updated'))
+        //   .catch((error) => console.log(error.message));
+
+        // ---------------
         swal('Account Create Successfull', '', 'success');
         setUpdateProfile({ photo: photoUrl, name: name });
         setTerms(false);

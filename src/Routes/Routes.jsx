@@ -57,13 +57,12 @@ const routes = createBrowserRouter([
         element: <Signup />,
       },
       {
-        path: '/service/:serviceName',
+        path: '/service/:id',
         element: (
           <PrivateRoute>
             <ServicesDetails />
           </PrivateRoute>
         ),
-        loader: () => fetch('/services.json'),
       },
     ],
   },

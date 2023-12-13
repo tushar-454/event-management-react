@@ -1,8 +1,18 @@
-import { useLoaderData } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+
+import useAxios from '../../../Hook/useAxios';
 import SectionHead from '../../ReusableUI/SectionHead';
 import Service from './Service';
 const Services = () => {
-  const servicesApi = useLoaderData();
+  const axios = useAxios();
+
+  const { data: servicesApi, isLoading } = useQuery({
+    queryKey: ['services'],
+    queryFn: async () => {
+      const res = await axios.get('/services');
+      return res.data;
+    },
+  });
 
   return (
     <div className='w-full'>
@@ -13,9 +23,10 @@ const Services = () => {
         />
         {/* all services wrap  */}
         <div className='grid gap-20 content-center justify-center items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
-          {servicesApi?.map((service, index) => (
-            <Service key={index} service={service} />
-          ))}
+          {!isLoading &&
+            servicesApi?.map((service, index) => (
+              <Service key={index} service={service} />
+            ))}
         </div>
       </div>
     </div>
