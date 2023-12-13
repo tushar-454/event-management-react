@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'http://localhost:5000',
+  baseURL: 'https://event-management-server-two.vercel.app',
   withCredentials: true,
 });
 
