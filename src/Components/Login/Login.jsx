@@ -109,7 +109,7 @@ const Login = () => {
                   </div>
                   <div>
                     <Link
-                      to={'/login'}
+                      to={'/forgot-password'}
                       className='font-medium font-montserrat underline underline-offset-2 transition hover:underline-offset-4 text-[#F9A51A]'
                     >
                       Forgot password ?

@@ -3,6 +3,7 @@ import Cart from '../Components/Cart/Cart.jsx';
 import Error from '../Components/Error/Error';
 import EventCalendar from '../Components/EventCalendar/EventCalendar';
 import Faq from '../Components/Faq/Faq';
+import ForgotPassword from '../Components/ForgotPassword/ForgotPassword.jsx';
 import Home from '../Components/Home/Home';
 import ServicesDetails from '../Components/Home/Services/ServicesDetails.jsx';
 import Layout from '../Components/Layout/Layout';
@@ -56,6 +57,10 @@ const routes = createBrowserRouter([
       {
         path: '/signup',
         element: <Signup />,
+      },
+      {
+        path: '/forgot-password',
+        element: <ForgotPassword />,
       },
       {
         path: '/service/:id',
