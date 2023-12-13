@@ -7,3 +7,7 @@
 body {
   font-family: 'DM Sans', sans-serif;
 }
+
+.no-wrap {
+  text-wrap: nowrap !important;
+}

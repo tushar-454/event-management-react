@@ -11,7 +11,7 @@
       "Vendor recommendations",
       "Day-of event management"
     ],
-    "aos": "fade-right"
+    "aos": "fade-down"
   },
   {
     "id": 2,
@@ -39,6 +39,6 @@
       "VIP handling and concierge services",
       "Event marketing and promotion"
     ],
-    "aos": "fade-right"
+    "aos": "fade-down"
   }
 ]

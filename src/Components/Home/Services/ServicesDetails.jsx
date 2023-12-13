@@ -35,6 +35,7 @@ const ServicesDetails = () => {
         bookedSevices: data,
         email: user.email,
         date: serviceDate,
+        status: 'Pending',
       })
       .then((res) => {
         if (res.data.insertedId) {

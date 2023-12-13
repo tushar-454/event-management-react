@@ -5,6 +5,7 @@ import {
   ChevronDownIcon,
   HomeIcon,
   PowerIcon,
+  ShoppingBagIcon,
   UserGroupIcon,
 } from '@heroicons/react/24/outline';
 import {
@@ -34,7 +35,7 @@ function ProfileMenu() {
   const { updateProfile, user, signOutAccount } = useContext(AuthContext);
   const { pathname } = useLocation();
   const closeMenu = () => setIsMenuOpen(false);
-
+  const navigate = useNavigate();
   // handle account signout
   const handleSignOut = () => {
     signOutAccount()
@@ -75,6 +76,19 @@ function ProfileMenu() {
         </Button>
       </MenuHandler>
       <MenuList className='p-1'>
+        <MenuItem
+          key={'My carts'}
+          onClick={() => navigate('/cart')}
+          className={`flex items-center gap-2 rounded`}
+        >
+          {React.createElement(ShoppingBagIcon, {
+            className: `h-4 w-4`,
+            strokeWidth: 2,
+          })}
+          <Typography as='span' variant='small' className='font-normal'>
+            My carts
+          </Typography>
+        </MenuItem>
         {profileMenuItems.map(({ label, icon }, key) => {
           const isLastItem = key === profileMenuItems.length - 1;
           return (
@@ -179,7 +193,7 @@ function NavList() {
   );
 }
 
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import PMLogo from '../../../assets/PMLogo.png';

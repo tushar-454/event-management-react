@@ -1,4 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
+import Cart from '../Components/Cart/Cart.jsx';
 import Error from '../Components/Error/Error';
 import EventCalendar from '../Components/EventCalendar/EventCalendar';
 import Faq from '../Components/Faq/Faq';
@@ -61,6 +62,14 @@ const routes = createBrowserRouter([
         element: (
           <PrivateRoute>
             <ServicesDetails />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/cart',
+        element: (
+          <PrivateRoute>
+            <Cart />
           </PrivateRoute>
         ),
       },
